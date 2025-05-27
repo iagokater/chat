@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>ChatRoom Pro</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <!-- Modal de entrada -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content login-enhanced">
+            <div class="login-header">
+                <h2>Banco de dados NoSQL</h2>
+            </div>
+            <div class="input-group">
+                <label for="username-input">Nome de usuário:</label>
+                <input type="text" id="username-input" placeholder="Digite seu nome" maxlength="20" minlength="2">
+                <div class="input-feedback"></div>
+            </div>
+            
+            <button id="join-btn" class="join-btn-enhanced" disabled>
+                <span class="btn-text">Entrar no Chat</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de Admin -->
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Area Administrativa</h2>
+            <input type="password" id="admin-password" placeholder="Digite a senha admin" maxlength="20">
+            <div class="admin-actions">
+                <button id="clear-chat-btn" class="admin-action-btn">Limpar Chat</button>
+                <button id="restart-server-btn" class="admin-action-btn">Reiniciar Servidor</button>
+                <button id="close-admin-btn" class="admin-close-btn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interface principal -->
+    <div id="main-container" class="hidden">
+        <div class="header">
+            <h1>Big Data no Agronegocio - FATEC Pompeia</h1>
+            <div class="header-controls">
+                <span style="display: none;"  id="user-info"></span>
+                <button id="logout-btn" class="logout-btn" title="Sair do chat">
+                    Sair
+                </button>
+                <button id="admin-btn" class="admin-btn" title="Administração">
+                    Admin
+                </button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Área do Chat -->
+            <div class="chat-section">
+                <h3>Conversas</h3>
+                <div id="messages-container">
+                    <div id="messages"></div>
+                </div>
+                <div class="message-input-container">
+                    <input type="text" id="message-input" placeholder="Digite sua mensagem..." maxlength="500">
+                    <button id="send-btn">Enviar</button>
+                </div>
+            </div>
+            <div class="mongodb-section">
+                <h3>Sistema</h3>
+                <div id="mongodb-container">
+                    <div id="mongodb-commands"></div>
+                </div>
+                <div class="mongodb-info">
+                    <small>Logs do sistema em tempo real</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
